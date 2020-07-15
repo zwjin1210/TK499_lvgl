@@ -27,6 +27,7 @@
 
 int main(void)
 {	
+#include "ARMCM4_FP.h"                  // Device header
 	int i;
   RemapVtorTable();
 	SystemClk_HSEInit(RCC_PLLMul_20);//∆Ù∂ØPLL ±÷”£¨12MHz*20=240MHz
