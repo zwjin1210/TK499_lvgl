@@ -49,10 +49,7 @@ void UART1_IRQHandler(void)//串口接收中断处理函数，打印出ASCII值
    if(UART1->ISR & (1<<1))     
 	 {
 		  UART1->RDR = Uart1_Receive();
-	    UART1->ICR |= 1<<1;
-		   
-		 
-		 
+	    UART1->ICR |= 1<<1;	 
 		 (UART1->RDR);
 	 }
 }
@@ -68,11 +65,11 @@ void send_group(u8*data,u16 len)
 }
 void send_str(char *p)
 {
-		while(*p != '\0')
-		{
-			send_data(*p);
-			p++;
-		}
+	while(*p != '\0')
+	{
+		send_data(*p);
+		p++;
+	}
 }
 
 //加入下列代码，不用勾选USE microlib,使用printf
@@ -80,18 +77,18 @@ void send_str(char *p)
 #pragma import(__use_no_semihosting)                          
 struct __FILE 
 { 
-int handle; 
+	int handle; 
 }; 
 FILE __stdout;       
 void _sys_exit(int x) 
 { 
-x = x; 
+	x = x; 
 } 
 int fputc(int ch, FILE *f)
 {      
-while((UART1->CSR &0x1) == 0){}
-	UART1->TDR = (u8) ch;      
-return ch;
+	while((UART1->CSR &0x1) == 0){}
+		UART1->TDR = (u8) ch;      
+	return ch;
 }
 
 //********************* UART2 设置 *********************//
@@ -155,13 +152,13 @@ void send2_group(u8 *data,u16 len)
 
 void send2_str(char *p)
 {
-		while(*p != '\0')
-		{
-			send2_data(*p);
-			p++;
-		}
-		send2_data('\r');
-		send2_data('\n');
+	while(*p != '\0')
+	{
+		send2_data(*p);
+		p++;
+	}
+	send2_data('\r');
+	send2_data('\n');
 }
 
 void UART2_IRQHandler(void)//串口接收中断处理函数，打印出ASCII值

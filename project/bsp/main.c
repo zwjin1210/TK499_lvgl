@@ -51,9 +51,9 @@ int main(void)
 	LCD_PutString(100,170," Smart IoT ESP8266 WIFI Test ",Red,Yellow,0);
 	LCD_Fill_Pic(400,0,320,480,(u32*)gImage_MM_T035);
 
-	ESP8266_Init();
-	printf("欢迎来到好钜润WIFI物联网测试!\n");	
-	ESP8266_StaTcpClient_UnvarnishTest();
+//	ESP8266_Init();
+//	printf("欢迎来到好钜润WIFI物联网测试!\n");	
+//	ESP8266_StaTcpClient_UnvarnishTest();
 	while(1)
 	{
 	}
